@@ -1,0 +1,197 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+
+        <div class="row">
+            <ng-container
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'dripicons-stopwatch',variant:'blue',stats:4,desc:'Car Staying hours'}">
+            </ng-container>
+    
+        </div> <!-- end row -->
+    
+        <div class="row">
+            <ng-container
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-pine-tree',variant:'success',stats:3250,desc:'Carbon Emission as Trees'}">
+            </ng-container>
+    
+        </div> <!-- end row -->
+        <div class="row">
+            <ng-container
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-car-brake-parking',variant:'danger',stats:53000,desc:'Available Parking Slots'}">
+            </ng-container>
+    
+        </div> <!-- end row -->
+        <div class="row">
+            <ng-container
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-hours-24',variant:'warning',stats:4500,desc:'Cars Over night'}">
+            </ng-container>
+        </div> <!-- end row -->
+
+        <div class="row">
+            <ng-container
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-hours-24',variant:'warning',stats:4500,desc:'Cars Over night'}">
+            </ng-container>
+        </div> <!-- end row -->
+        
+        <div class="row">
+            <div id="deal-analytics" class="mt-4">
+                <div [chart]="cEStandard"></div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div id="deal-analytics" class="mt-4">
+                <div [chart]="chart2"></div>
+            </div>
+        </div>
+
+      </div> <!-- end col -->
+      <div class="col-6">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless table-nowrap table-centered mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Building Name</th>
+                                                <th>Faults</th>
+                                                <th>Building Capacity</th>
+                                                <th>Occupancy Level</th>
+                                                <th style="width: 50px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of faults">
+                                                <td>
+                                                    {{item.name}}
+                                                </td>
+                                                <td>
+                                                    {{item.fault[0].type}}:{{item.fault[0].number}}
+                                                    {{item.fault[1].type}}:{{item.fault[1].number}}
+                                                    {{item.fault[2].type}}:{{item.fault[2].number}}
+                                                </td>
+                                                <td>
+                                                    {{item.buildingCapacity.electricity}}
+                                                    {{item.buildingCapacity.cooling}} 
+                                                </td>
+
+                                                <td>
+                                                    {{item.occupancy.count}}
+                                                    {{item.occupancy.percantage}}
+                                                </td>
+                                            
+                                            </tr>
+        
+                                        </tbody>
+                                    </table>
+                                </div> <!-- end table-responsive-->
+        
+                        </div> <!-- end row -->
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+
+        </div> <!-- end row -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless table-nowrap table-centered mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Run Time</th>
+                                                <th>Total Fault</th>
+                                                <th>Building Capacity</th>
+                                                <th style="width: 50px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of assets">
+                                                <td>
+                                                    {{item.name}}
+                                                </td>
+                                                <td>
+                                                    {{item.runTime}}
+                                                </td>
+                                                <td>
+                                                    {{item.fault}}
+                                                </td>
+
+                                                <td>
+                                                    {{item.capacity}}
+                                                </td>
+                                            
+                                            </tr>
+        
+                                        </tbody>
+                                    </table>
+                                </div> <!-- end table-responsive-->
+        
+                        </div> <!-- end row -->
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+
+        </div> <!-- end row -->
+
+      </div> <!-- end col -->
+      <div class="col"> 
+        <div class="row">
+            <div id="deal-analytics" class="mt-4">
+                <div [chart]="chart3"></div>
+            </div>
+        </div> <!-- end row -->
+        <div class="row">
+            <div id="deal-analytics" class="mt-4">
+                <div [chart]="chart4"></div>
+            </div>
+        </div> <!-- end row -->
+        <div class="row">
+            <div id="deal-analytics" class="mt-4">
+                <div [chart]="chart5"></div>
+            </div>
+        </div> <!-- end row --> 
+        <div class="row">
+            <div id="deal-analytics" class="mt-4">
+                <div [chart]="chart3"></div>
+            </div>
+        </div>
+
+      </div> <!-- end col -->
+    </div>
+</div>
+
+
+<!-- reusable templates -->
+<ng-template #StatiscticsCard let-icon="icon" let-variant="variant" let-stats="stats" let-desc="desc">
+    <div class="card bg-pattern">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <div class="avatar-md bg-{{variant}} rounded">
+                        <i [class]="icon" [ngClass]="{' avatar-title font-22 text-white': icon}"></i>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="text-end">
+                        <h3 class="text-dark my-1"><span [countUp]="stats">{{stats | number}}</span>
+                        </h3>
+                        <p class="text-muted mb-0 text-truncate">{{desc}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end card-->
+</ng-template>

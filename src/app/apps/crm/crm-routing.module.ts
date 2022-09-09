@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'contacts', loadChildren: () => import('./contacts/contacts.module').then(m => m.ContactsModule) },
   { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: 'energy', loadChildren: () => import('./energy/energy.module').then(m => m.EnergyModule) },
   { path: 'leads', loadChildren: () => import('./leads/leads.module').then(m => m.LeadsModule) },
   { path: 'opportunities', loadChildren: () => import('./opportunities/opportunities.module').then(m => m.OpportunitiesModule) }
 ];
