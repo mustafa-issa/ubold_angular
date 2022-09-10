@@ -15,19 +15,16 @@ export class EnergyComponent implements OnInit {
       this.faults =  [
         {
         name: 'Building 2',
-        fault: [{
-          type: 'Critical',
-          number: '15'
-        }, {
-          type: 'Minor',
-          number: '15'
-        }, {
-          type: 'Normal',
-          number: '15'
-        }],
+        alarms: 
+        {
+          critical : '15', 
+          minor : '15', 
+          normal: '15'
+
+        },
         buildingCapacity: {
-          electricity: 57,
-          cooling: 57
+          electricity: 70,
+          cooling: 55
         },
         occupancy: {
           count: 860,
@@ -36,25 +33,22 @@ export class EnergyComponent implements OnInit {
       }, 
       {
         name: 'Building 2',
-        fault: [{
-          type: 'Critical',
-          number: '15'
-        }, {
-          type: 'Minor',
-          number: '15'
-        }, {
-          type: 'Normal',
-          number: '15'
-        }],
+        alarms: 
+        {
+          critical : '15', 
+          minor : '15', 
+          normal: '15'
+
+        },
         buildingCapacity: {
           electricity: 57,
-          cooling: 57
+          cooling: 90
         },
         occupancy: {
           count: 860,
           percantage: 70
         }
-      }]
+      },]
 
       this.assets = [
         {

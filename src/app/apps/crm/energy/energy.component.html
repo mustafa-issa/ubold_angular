@@ -59,30 +59,98 @@
                                         <thead class="table-light">
                                             <tr>
                                                 <th>Building Name</th>
-                                                <th>Faults</th>
-                                                <th>Building Capacity</th>
-                                                <th>Occupancy Level</th>
-                                                <th style="width: 50px;"></th>
+                                                <th>Alarm
+                                                    <div class="row">
+                                                        <label class="col-4">
+                                                          Critical
+                                                        </label>
+                                                        <label class="col-4">
+                                                          Minor
+                                                        </label>
+                                                        <label class="col-4">
+                                                            Normal
+                                                        </label>
+                                  
+                                                      </div>
+                                                </th>
+                                                <th> 
+                                                    <div class="row">
+                                                        Building
+                                                    </div>
+                                                    <div class="row">
+                                                        Capacity
+                                                    </div>
+
+                                                </th>
+                                                <th>
+                                                    <div class="row">
+                                                        Occupancy
+                                                    </div>
+                                                    <div class="row">
+                                                        Level
+                                                    </div>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let item of faults">
-                                                <td>
+                                                <td style="font-weight: bold;">
                                                     {{item.name}}
                                                 </td>
                                                 <td>
-                                                    {{item.fault[0].type}}:{{item.fault[0].number}}
-                                                    {{item.fault[1].type}}:{{item.fault[1].number}}
-                                                    {{item.fault[2].type}}:{{item.fault[2].number}}
+                                                    <div class="col-4 div-circle">
+                                                        <span class="action-sm-icon bg-danger box-shadow-C">
+                                                          <div class="text-value">{{item.alarms.critical}}</div>
+                                                        </span>
+                                                      </div>
+
+                                                      <div class="col-4 div-circle">
+                                                        <span class="action-sm-icon bg-warning box-shadow-E ">
+                                                          <div class="text-value">{{item.alarms.minor}}</div>
+                                                        </span>
+                                                      </div>
+
+
+                                                      <div class="col-4 div-circle">
+                                                        <span class="action-sm-icon bg-success box-shadow-N ">
+                                                          <div class="text-value">{{item.alarms.normal}}</div>
+                                                        </span>
+                                                      </div>
                                                 </td>
                                                 <td>
-                                                    {{item.buildingCapacity.electricity}}
-                                                    {{item.buildingCapacity.cooling}} 
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            Electricity
+                                                        </div>
+                                                        <p>
+                                                            <ngb-progressbar [showValue]="true" type="primary" [value]="item.buildingCapacity.electricity" [striped]="true">
+                                                            </ngb-progressbar>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            Cooling
+                                                        </div>
+                                                        <p>
+                                                            <ngb-progressbar [showValue]="true" type="primary" [value]="item.buildingCapacity.cooling" [striped]="true">
+                                                            </ngb-progressbar>
+                                                        </p>
+                                                    </div>
+
                                                 </td>
 
                                                 <td>
-                                                    {{item.occupancy.count}}
-                                                    {{item.occupancy.percantage}}
+
+                                                    <div class="col-12 div-circle">
+                                                        <span class="action-sm-icon bg-warning box-shadow-E ">
+                                                            <div class="text-value">
+                                                                {{item.occupancy.count}}
+                                                                {{item.occupancy.percantage}}
+                                                            </div>
+                                                        </span>
+                                                      </div>
+
                                                 </td>
                                             
                                             </tr>
@@ -145,6 +213,8 @@
         </div> <!-- end row -->
 
         </div> <!-- end row -->
+
+        
 
       </div> <!-- end col -->
       <div class="col"> 

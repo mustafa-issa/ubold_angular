@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountUpModule } from 'ngx-countup';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { PageTitleModule } from 'src/app/shared/page-title/page-title.module';
@@ -21,7 +21,8 @@ import { ChartModule } from 'angular-highcharts';
     UiModule,
     PageTitleModule,
     EnergyRoutingModule,
-    ChartModule
+    ChartModule,
+    NgbProgressbarModule
   ]
 })
 export class EnergyModule { }
