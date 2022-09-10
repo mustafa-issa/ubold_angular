@@ -1,6 +1,6 @@
 
 export interface BrandItem {
     id?: number;
-    name?: string;
+    name: string;
     logo?: string;
 }

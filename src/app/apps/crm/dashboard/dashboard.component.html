@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-3">
                             <div class="avatar-md rounded">
-                                <i class="avatar-title font-22 text-white" [ngClass]="message.icon"></i>
+                                <i class="avatar-title font-22 {{theme === 'dark' ? 'text-white': 'text-black'}}" [ngClass]="message.icon"></i>
                             </div>
                         </div>
                         <div class="col-6">

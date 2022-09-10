@@ -7,27 +7,63 @@ import * as Highcharts from 'highcharts';
 import { enteredCars } from "./charts/entered-cars";
 import { carbonFootPrint } from "./charts/carbon-foot-print";
 import { dailyCarBrandName } from "./charts/daily-car-brand";
-//import theme from 'highcharts/themes/grid';
+import theme_dark from 'highcharts/themes/dark-unica';
 
 declare var require: any;
-const More = require('highcharts/highcharts-more');
+let More = require('highcharts/highcharts-more');
 More(Highcharts);
-//theme(Highcharts);
+
 @Component({
   selector: "app-crm-dashboard",
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+  ngOnInit(): void {
+    if(this.theme === 'dark') {
+        theme_dark(Highcharts);
+    }
+  }
 
-  ngOnInit(): void {}
   cEStandard = cEStandard;
-  chart2 = DailyCars.dailyCars;
-  chart3 = carsFuel;
-  chart4 = enteredCars;
-  chart5 = carbonFootPrint;
-  chart6 = dailyCarBrandName;
+    chart2 = DailyCars.dailyCars;
+    chart3 = carsFuel;
+    chart4 = enteredCars;
+    chart5 = carbonFootPrint;
+    chart6 = dailyCarBrandName;
+    chart8 = new Chart({
+        chart: {
+            type: 'areaspline',
+            height: '50%',
+            marginTop: 10,
+            marginBottom: 0,
+            marginLeft: 0,
+            marginRight: 0,
+            plotShadow: false,
+            borderWidth: 0,
+            plotBorderWidth: 0
+        },
+        
+        title: {
+            text: ''
+        },
+        legend: {
+            enabled: false
+        },
+        credits: {
+            enabled: false
+        },
+        yAxis: {
+          title: {
+              text: ''
+          }
+      },
+        series: [
+          {
+            type: 'areaspline',
+            data: [10, 20, 15, 30, 35, 30, 45, 59, 30, 35, 25, 29, 15]
+        }]
+    });
   messages: any = [
     {
         value: 20,
@@ -71,37 +107,9 @@ export class DashboardComponent implements OnInit {
   },
 ];
 
-  chart8 = new Chart({
-    chart: {
-        type: 'areaspline',
-        height: '50%',
-        marginTop: 10,
-        marginBottom: 0,
-        marginLeft: 0,
-        marginRight: 0,
-        plotShadow: false,
-        borderWidth: 0,
-        plotBorderWidth: 0
-    },
-    
-    title: {
-        text: ''
-    },
-    legend: {
-        enabled: false
-    },
-    credits: {
-        enabled: false
-    },
-    yAxis: {
-      title: {
-          text: ''
-      }
-  },
-    series: [
-      {
-        type: 'areaspline',
-        data: [10, 20, 15, 30, 35, 30, 45, 59, 30, 35, 25, 29, 15]
-    }]
-});
+
+public get theme() : string {
+    return localStorage.getItem('theme') || this.theme;
+}
+
 }

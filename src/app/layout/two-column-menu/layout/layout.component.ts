@@ -46,6 +46,7 @@ export class TwoColumnMenuLayoutComponent implements OnInit {
     });
 
     this.eventService.subscribe('changeTopbarTheme', (theme) => {
+      debugger;
       this.topbarTheme = theme;
     });
 

@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AuthenticationService } from 'src/app/core/service/auth.service';
 import { EventService } from 'src/app/core/service/event.service';
 import { LEFT_SIDEBAR_TYPE_CONDENSED, LEFT_SIDEBAR_TYPE_DEFAULT } from '../config/layout.model';
-import { BrandItem } from '../models/brands.model';
 import { CreateNewMenuOption } from '../models/create-new.model';
 import { Language } from '../models/language.model';
 import { MegaMenuItem } from '../models/mega-menu.model';
@@ -23,7 +22,6 @@ export class TopbarComponent implements OnInit {
   megaMenuItems: MegaMenuItem[] = [];
   notificationList: NotificationItem[] = [];
   languages: Language[] = [];
-  brands: BrandItem[] = [];
   profileOptions: ProfileOptionItem[] = [];
   selectedLanguage?: Language;
   searchResults: SearchResultItem[] = [];
@@ -47,9 +45,6 @@ export class TopbarComponent implements OnInit {
   ngOnInit(): void {
     this._fetchMenus();
     this._fetchSearchData();
-    this._fetchNotifications();
-    this._fetchBrands();
-    this._fetchLanguages();
     this._fetchProfileOptions();
 
     this.loggedInUser = this.authService.currentUser();
@@ -130,137 +125,6 @@ export class TopbarComponent implements OnInit {
         ],
       },
     ];
-  }
-
-  /**
-   * Fetches notifications
-   */
-  _fetchNotifications(): void {
-    this.notificationList = [{
-      text: 'Caleb Flakelar commented on Admin',
-      isActive: true,
-      subText: '1 min ago',
-      icon: 'mdi mdi-comment-account-outline',
-      bgColor: 'primary',
-      redirectTo: '/dashboard-1'
-    },
-    {
-      text: 'New user registered.',
-      subText: '5 min ago',
-      icon: 'mdi mdi-account-plus',
-      bgColor: 'info',
-      redirectTo: '/dashboard-1'
-    },
-    {
-      text: 'Cristina Pride',
-      subText: 'Hi, How are you? What about our next meeting',
-      avatar: 'assets/images/users/user-4.jpg',
-      bgColor: 'success',
-      redirectTo: '/dashboard-1'
-    },
-    {
-      text: 'Caleb Flakelar commented on Admin',
-      subText: '2 days ago',
-      icon: 'mdi mdi-comment-account-outline',
-      bgColor: 'danger',
-      redirectTo: '/dashboard-1'
-    },
-    {
-      text: 'Caleb Flakelar commented on Admin',
-      subText: '1 min ago',
-      icon: 'mdi mdi-comment-account-outline',
-      bgColor: 'primary',
-      redirectTo: '/dashboard-1'
-    },
-    {
-      text: 'New user registered.',
-      subText: '5 min ago',
-      icon: 'mdi mdi-account-plus',
-      bgColor: 'info',
-      redirectTo: '/dashboard-1'
-    },
-    {
-      text: 'Cristina Pride',
-      subText: 'Hi, How are you? What about our next meeting',
-      avatar: 'assets/images/users/user-1.jpg',
-      bgColor: 'success',
-      redirectTo: '/dashboard-1'
-    },
-    {
-      text: 'Caleb Flakelar commented on Admin',
-      subText: '2 days ago',
-      icon: 'mdi mdi-comment-account-outline',
-      bgColor: 'danger',
-      redirectTo: '/dashboard-1'
-    }];
-  }
-
-  /**
-   * Fetches supported languages
-   */
-  _fetchLanguages(): void {
-    this.languages = [{
-      id: 1,
-      name: 'English',
-      flag: 'assets/images/flags/us.jpg',
-    },
-    {
-      id: 2,
-      name: 'German',
-      flag: 'assets/images/flags/germany.jpg',
-    },
-    {
-      id: 3,
-      name: 'Italian',
-      flag: 'assets/images/flags/italy.jpg',
-    },
-    {
-      id: 4,
-      name: 'Spanish',
-      flag: 'assets/images/flags/spain.jpg',
-    },
-    {
-      id: 5,
-      name: 'Russian',
-      flag: 'assets/images/flags/russia.jpg',
-    }];
-    this.selectedLanguage = this.languages[0];
-  }
-
-  /**
-   * Fetches brands
-   */
-  _fetchBrands(): void {
-    this.brands = [{
-      id: 1,
-      name: 'Slack',
-      logo: 'assets/images/brands/slack.png',
-    },
-    {
-      id: 2,
-      name: 'Github',
-      logo: 'assets/images/brands/github.png',
-    },
-    {
-      id: 3,
-      name: 'Dribbble',
-      logo: 'assets/images/brands/dribbble.png',
-    },
-    {
-      id: 4,
-      name: 'Bitbucket',
-      logo: 'assets/images/brands/bitbucket.png',
-    },
-    {
-      id: 5,
-      name: 'Dropbox',
-      logo: 'assets/images/brands/dropbox.png',
-    },
-    {
-      id: 6,
-      name: 'G Suite',
-      logo: 'assets/images/brands/g-suite.png',
-    }];
   }
 
   /**

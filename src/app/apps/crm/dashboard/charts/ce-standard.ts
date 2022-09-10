@@ -1,5 +1,5 @@
 import { Chart } from "angular-highcharts";
-export const cEStandard = new Chart({
+export let cEStandard: Chart = new Chart({
   chart: {
     type: "area",
   },
