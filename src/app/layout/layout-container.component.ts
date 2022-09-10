@@ -38,6 +38,7 @@ export class LayoutContainerComponent implements OnInit, AfterViewInit {
     this.eventService.subscribe('changeLayoutColor', (color) => {
       setTimeout(() => {
         this.layoutColor = color;
+        localStorage.setItem('theme', color);
       }, 20);
     });
 

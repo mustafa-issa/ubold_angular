@@ -7,12 +7,15 @@
 
     <div class="content-page" *ngIf="reRender">
         <div class="content">
-            <!-- content -->
-            <div class="container-fluid">
-                <router-outlet></router-outlet>
-            </div>
+            <router-outlet></router-outlet>
         </div>
         <!-- footer -->
-        <app-footer></app-footer>
+        <!-- <app-footer></app-footer> -->
     </div>
 </div>
+
+<!-- right sidebar -->
+<app-right-sidebar layoutType="horizontal" [layoutColor]="layoutColor" [layoutWidth]="layoutWidth"
+    [menuPosition]="menuPosition" [leftSidebarTheme]="leftSidebarTheme" [leftSidebarType]="leftSidebarType"
+    [topbarTheme]="topbarTheme" [showSidebarUserInfo]="showSidebarUserInfo">
+</app-right-sidebar>

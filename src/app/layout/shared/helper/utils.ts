@@ -62,13 +62,14 @@ const changeBodyAttribute = (attribute: string, value?: string, action = 'set'):
  * @param layoutType layout type
  */
 const getLayoutConfig = (layoutType: string = 'horizontal'): LayoutConfig => {
+    let theme = localStorage.getItem('theme');
     let config: LayoutConfig = {
         layoutWidth: LAYOUT_WIDTH_FLUID,
-        layoutColor: LAYOUT_COLOR_LIGHT,
+        layoutColor: theme || LAYOUT_COLOR_DARK,
         menuPosition: MENU_POSITION_FIXED,
         leftSidebarTheme: LEFT_SIDEBAR_THEME_LIGHT,
         leftSidebarType: LEFT_SIDEBAR_TYPE_DEFAULT,
-        topbarTheme: TOPBAR_THEME_DARK,
+        topbarTheme: theme || TOPBAR_THEME_DARK,
         showSidebarUserInfo: false
     }
 

@@ -9,16 +9,12 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutContainerComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
-      },
-      {
-        path: 'apps',
         loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule),
-      },
+      }
     ]
   },
   {

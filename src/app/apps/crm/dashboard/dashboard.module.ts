@@ -8,7 +8,8 @@ import { UiModule } from 'src/app/shared/ui/ui.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { ChartModule } from 'angular-highcharts';
-
+import { SimplebarAngularModule } from 'simplebar-angular';
+import { HighchartsChartModule } from 'highcharts-angular';
 @NgModule({
   declarations: [
     DashboardComponent
@@ -21,7 +22,10 @@ import { ChartModule } from 'angular-highcharts';
     UiModule,
     PageTitleModule,
     DashboardRoutingModule,
-    ChartModule
+    ChartModule,
+    SimplebarAngularModule,
+    HighchartsChartModule,
+    NgApexchartsModule,
   ]
 })
 export class DashboardModule { }
