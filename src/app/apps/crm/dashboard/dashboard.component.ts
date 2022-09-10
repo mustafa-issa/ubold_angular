@@ -209,12 +209,12 @@ initAreaChart(): void {
     this.areaChartOptions = {
       series: [
         {
-          name: "TEAM A",
+          name: "CO2",
           type: "area",
           data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
         },
         {
-          name: "TEAM B",
+          name: "EU",
           type: "area",
           data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
         }
@@ -236,7 +236,7 @@ initAreaChart(): void {
           columnWidth: "50%"
         }
       },
-      colors: ['#727cf5', '#39afd1', '#fa5c7c'],
+      colors: ['#fa5c7c', '#39afd1'],
       fill: {
         opacity: [0.85, 0.25, 1],
         gradient: {
@@ -269,7 +269,7 @@ initAreaChart(): void {
       },
       yaxis: {
         title: {
-          text: "Points"
+          text: undefined
         },
         min: 0
       },
@@ -292,9 +292,9 @@ initAreaChart(): void {
     this.lineChartOptions = {
       series: [
         {
-          name: "Lineeeeeeeeeeeee",
+          name: "Cars",
           type: "line",
-          data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+          data: [0, 5000, 7000, 8250, 11300, 10000, 14500, 13000, 18000, 19200, 17500, 20100, 20500, 18500, 17200, 18000, 14000, 15000, 11000, 9000, 7000, 5000, 0]
         }
       ],
       chart: {
@@ -326,27 +326,18 @@ initAreaChart(): void {
         }
       },
       labels: [
-        "01/01/2003",
-        "02/01/2003",
-        "03/01/2003",
-        "04/01/2003",
-        "05/01/2003",
-        "06/01/2003",
-        "07/01/2003",
-        "08/01/2003",
-        "09/01/2003",
-        "10/01/2003",
-        "11/01/2003"
       ],
       markers: {
         size: 0
       },
       xaxis: {
-        type: "datetime"
+        categories: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+    tickAmount: 8  // optional tickAmount valu
+       
       },
       yaxis: {
         title: {
-          text: "Points"
+          text: undefined
         },
         min: 0
       },
@@ -356,7 +347,7 @@ initAreaChart(): void {
         y: {
           formatter: function (y: number) {
             if (typeof y !== "undefined") {
-              return y.toFixed(0) + " points";
+              return y.toFixed(0) + "";
             }
             return y;
           }
@@ -365,11 +356,75 @@ initAreaChart(): void {
     };
   }
 
+  initBarChartOptions2(): void {
+    this.barChartOptions2 = {
+      series: [
+        {
+          name: "EV Cars",
+          data: [44, 55, 41, 37, 22, 43, 21], 
+          color: "#fa5c7c",
+        },
+        {
+          name: "Petrol Cars",
+          data: [53, 32, 33, 52, 13, 43, 32],
+          color: "#39afd1",
+        },
+      ],
+      chart: {
+        type: "bar",
+        height: 300,
+        stacked: true,
+        toolbar: {
+          show: false
+        }
+
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false
+        }
+      },
+      stroke: {
+        width: 1,
+        colors: ["#fff"]
+      },
+
+      xaxis: {
+        categories: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+        labels: {
+          formatter: (val: string) => {
+            return val;
+          }
+        }
+      },
+      yaxis: {
+        title: {
+          text: undefined
+        }
+      },
+      tooltip: {
+        y: {
+          formatter: function (val: number) {
+            return val + "K";
+          }
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "left",
+        offsetX: 40
+      }
+    };
+  }
+
   initColumnChart(): void {
     this.columnChartOptions = {
       series: [
         {
-          name: "sasasa",
+          name: "Carbon Foot Print (KG.CO2/kWh)",
           type: "column",
           data: [30, 25, 36, 30, 45, 35, 64]
         }
@@ -402,24 +457,22 @@ initAreaChart(): void {
           stops: [0, 100, 100, 100]
         }
       },
-      labels: [
-        "01/01/2003",
-        "02/01/2003",
-        "03/01/2003",
-        "04/01/2003",
-        "05/01/2003",
-        "06/01/2003",
-        "07/01/2003"
-      ],
+ 
       markers: {
         size: 0
       },
       xaxis: {
-        type: "datetime"
+        categories: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+        labels: {
+          formatter: (val: string) => {
+            return val;
+          }
+        }
       },
+     
       yaxis: {
         title: {
-          text: "Points"
+          text: 'KG.CO2/kWh'
         },
         min: 0
       },
@@ -429,73 +482,11 @@ initAreaChart(): void {
         y: {
           formatter: function (y: number) {
             if (typeof y !== "undefined") {
-              return y.toFixed(0) + " points";
+              return y.toFixed(0);
             }
             return y;
           }
         }
-      }
-    };
-  }
-
-  initBarChartOptions2(): void {
-    this.barChartOptions2 = {
-      series: [
-        {
-          name: "Marine Sprite",
-          data: [44, 55, 41, 37, 22, 43, 21]
-        },
-        {
-          name: "Striking Calf",
-          data: [53, 32, 33, 52, 13, 43, 32]
-        },
-      ],
-      chart: {
-        type: "bar",
-        height: 300,
-        stacked: true,
-        toolbar: {
-          show: false
-        }
-
-      },
-      plotOptions: {
-        bar: {
-          horizontal: false
-        }
-      },
-      stroke: {
-        width: 1,
-        colors: ["#fff"]
-      },
-
-      xaxis: {
-        categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
-        labels: {
-          formatter: (val: string) => {
-            return val + "K";
-          }
-        }
-      },
-      yaxis: {
-        title: {
-          text: undefined
-        }
-      },
-      tooltip: {
-        y: {
-          formatter: function (val: number) {
-            return val + "K";
-          }
-        }
-      },
-      fill: {
-        opacity: 1
-      },
-      legend: {
-        position: "top",
-        horizontalAlign: "left",
-        offsetX: 40
       }
     };
   }
@@ -510,8 +501,8 @@ initAreaChart(): void {
           show: false
         }
       },
-      series: [44, 55, 41, 17, 15],
-      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+      series: [560, 450, 320, 255, 700],
+      labels: ["Toyota", "Nissan", "Mercedes", "BMW", "Others"],
       colors: ["#6658dd", "#4fc6e1", "#4a81d4", "#00b19d", "#f1556c"],
       dataLabels: {
         enabled: false
@@ -530,7 +521,7 @@ initAreaChart(): void {
         breakpoint: 600,
         options: {
           chart: {
-            height: 240
+            height: 270
           },
           legend: {
             show: false

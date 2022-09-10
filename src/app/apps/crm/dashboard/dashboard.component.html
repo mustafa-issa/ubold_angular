@@ -34,7 +34,7 @@
 
 <div style="margin-top: -15px; margin-bottom: 10px;" class="row row-cols-xs-1 row-cols-lg-5">
     <div class="col">
-        <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+        <app-ui-portlet-card cardTitle="CO2 Emission VS EU Standard">
         <div id="mixed-chart">
             <apx-chart class="apex-charts" [series]="areaChartOptions.series" [chart]="areaChartOptions.chart"
                     [yaxis]="areaChartOptions.yaxis" [xaxis]="areaChartOptions.xaxis"
@@ -47,7 +47,7 @@
     </div>
 
     <div class="col">
-        <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+        <app-ui-portlet-card cardTitle="Daily Cars Traffic">
             <div id="mixed-chart">
                 <apx-chart class="apex-charts" [series]="lineChartOptions.series" [chart]="lineChartOptions.chart"
                         [yaxis]="lineChartOptions.yaxis" [xaxis]="lineChartOptions.xaxis"
@@ -59,14 +59,14 @@
         </app-ui-portlet-card>
     </div>
     <div class="col">
-        <app-ui-portlet-card cardTitle="Stacked Bar Chart">
+        <app-ui-portlet-card cardTitle="Cars By Fuel Breakdown">
             <div [chart]="chart3"></div>
         </app-ui-portlet-card>
 
     </div>
 
     <div class="col">
-        <app-ui-portlet-card cardTitle="Stacked Bar Chart">
+        <app-ui-portlet-card cardTitle="Total Number Of Cars">
 
             <div id="bar-chart-stacked">
                 <apx-chart class="apex-charts" [series]="barChartOptions2.series!" [chart]="barChartOptions2.chart!"
@@ -79,7 +79,7 @@
     </div>
 
     <div class="col">
-        <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+        <app-ui-portlet-card cardTitle="Carbon Foot Print">
             <div id="mixed-chart">
                 <apx-chart class="apex-charts" [series]="columnChartOptions.series" [chart]="columnChartOptions.chart"
                         [yaxis]="columnChartOptions.yaxis" [xaxis]="columnChartOptions.xaxis"
@@ -94,10 +94,10 @@
 
 <div class="row">
     <div class="col-md-3">
-        <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+        <app-ui-portlet-card cardTitle="Daily Car Type Quantity">
 
         <div>
-            <h4 class="header-title mb-3">Daily car type quantity</h4>
+            <h4 class="header-title mb-3"></h4>
             <ngx-simplebar class="inbox-widget">
                 <div class="inbox-item"  [style.maxHeight.px]="50" *ngFor="let message of messages">
                     <div class="row">
@@ -135,7 +135,7 @@
         <div class="pb-2">
             <div class="row" dir="ltr">
                 <div class="col">
-                    <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+                    <app-ui-portlet-card cardTitle="Daily Car Brand Breakdown">
                         <div id="mixed-chart">
                             <apx-chart class="apex-charts" [series]="piChartOptions.series" [chart]="piChartOptions.chart"
                                     [yaxis]="piChartOptions.yaxis" [xaxis]="piChartOptions.xaxis"
@@ -149,7 +149,7 @@
             </div>
             <div class="row" dir="ltr">
                 <div class="col mt-2">
-                    <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+                    <app-ui-portlet-card cardTitle="Forecasting Number Of Cars">
                         <div id="mixed-chart">
                             <apx-chart class="apex-charts" [series]="singleAreaChartOptions.series" [chart]="singleAreaChartOptions.chart"
                                     [yaxis]="singleAreaChartOptions.yaxis" [xaxis]="singleAreaChartOptions.xaxis"

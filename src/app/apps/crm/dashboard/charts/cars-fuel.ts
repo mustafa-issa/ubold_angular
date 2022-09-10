@@ -29,6 +29,7 @@ export function carsFuel(theme: string): Chart {
           },
         },
         minSize: 50,
+        maxSize: 150  
       },
     },
     series: [
@@ -38,7 +39,7 @@ export function carsFuel(theme: string): Chart {
         type: 'packedbubble',
         data: [
           {
-            value: 320,
+            value: 14800,
             name: "Petrol",
           }
         ],
@@ -48,7 +49,7 @@ export function carsFuel(theme: string): Chart {
         type: 'packedbubble',
         data: [
           {
-            value: 50,
+            value: 3700,
             name: "Diesel",
           },
         ],
@@ -56,14 +57,14 @@ export function carsFuel(theme: string): Chart {
       {
         name: "Electric",
         type: 'packedbubble',
-        data: [{ value: 120, name: "Electric" }],
+        data: [{ value: 3800, name: "Electric" }],
       },
       {
         name: "Hybrid",
         type: 'packedbubble',
         data: [
           {
-            value: 68,
+            value: 1400,
             name: "Hybrid",
           },
         ],
