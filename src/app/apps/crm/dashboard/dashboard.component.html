@@ -1,28 +1,34 @@
 <div class="row">
-    <div class="col-lg-6 col-xl-3">
+    <div class="col">
         <ng-container
             *ngTemplateOutlet="StatiscticsCard;context:{icon:'dripicons-stopwatch',variant:'blue',stats:4,desc:'Car Staying hours'}">
         </ng-container>
 
     </div> <!-- end col -->
 
-    <div class="col-lg-6 col-xl-3">
+    <div class="col">
         <ng-container
             *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-pine-tree',variant:'success',stats:3250,desc:'Carbon Emission as Trees'}">
         </ng-container>
 
     </div> <!-- end col -->
-    <div class="col-lg-6 col-xl-3">
+    <div class="col">
         <ng-container
             *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-car-brake-parking',variant:'danger',stats:53000,desc:'Available Parking Slots'}">
         </ng-container>
 
     </div> <!-- end col -->
-    <div class="col-lg-6 col-xl-3">
+    <div class="col">
         <ng-container
             *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-hours-24',variant:'warning',stats:4500,desc:'Cars Over night'}">
         </ng-container>
     </div> <!-- end col -->
+    <div class="col">
+        <ng-container
+            *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-hours-24',variant:'warning',stats:4500,desc:'Cars Over night'}">
+        </ng-container>
+    </div> <!-- end col -->
+
 </div>
 <!-- end row-->
 
@@ -100,15 +106,15 @@
 
 <!-- reusable templates -->
 <ng-template #StatiscticsCard let-icon="icon" let-variant="variant" let-stats="stats" let-desc="desc">
-    <div class="card bg-pattern">
+    <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <div class="avatar-md bg-{{variant}} rounded">
                         <i [class]="icon" [ngClass]="{' avatar-title font-22 text-white': icon}"></i>
                     </div>
                 </div>
-                <div class="col-8">
+                <div class="col-6">
                     <div class="text-end">
                         <h3 class="text-dark my-1"><span [countUp]="stats">{{stats | number}}</span>
                         </h3>
