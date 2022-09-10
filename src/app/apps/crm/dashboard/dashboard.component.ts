@@ -533,14 +533,22 @@ initAreaChart(): void {
   initSingleAreaChartOptions() : void {
     this.singleAreaChartOptions = {
       series: [
+        
         {
-          name: "TEAM A",
+          name: "Forecasted",
           type: "area",
-          data: [23, 11, 22, 27, 13]
-        }
+          data: [1 , 5, 10 , 15, 20],
+          color: '#39afd1'
+        },
+        {
+          name: "Actual",
+          type: "area",
+          data: [1 , 5, 10 , 0, 0], 
+          color: '#fa5c7c'
+        },
       ],
       chart: {
-        height: 150,
+        height: 160,
         type: "area",
         stacked: false,
         toolbar: {
@@ -556,7 +564,6 @@ initAreaChart(): void {
           columnWidth: "50%"
         }
       },
-      colors: ['#727cf5', '#39afd1', '#fa5c7c'],
       fill: {
         opacity: [0.85, 0.25, 1],
         gradient: {
@@ -568,30 +575,28 @@ initAreaChart(): void {
           stops: [0, 100, 100, 100]
         }
       },
-      labels: [
-        "01/01/2003",
-        "02/01/2003",
-        "03/01/2003",
-        "04/01/2003",
-        "05/01/2003",
-        "06/01/2003",
-        "07/01/2003",
-        "08/01/2003",
-        "09/01/2003",
-        "10/01/2003",
-        "11/01/2003"
-      ],
       markers: {
         size: 0
       },
       xaxis: {
-        type: "datetime"
+        categories: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+        labels: {
+          formatter: (val: string) => {
+            return val;
+          }
+        }
       },
       yaxis: {
         title: {
-          text: "Points"
+          text: undefined
         },
-        min: 0
+        min: 0,
+        max : 20, 
+        tickAmount: 5  // optional tickAmount valu
+
+      },
+      legend: {
+        show: false,
       },
       tooltip: {
         shared: true,
@@ -599,7 +604,7 @@ initAreaChart(): void {
         y: {
           formatter: function (y: number) {
             if (typeof y !== "undefined") {
-              return y.toFixed(0) + " points";
+              return y.toFixed(0) + "";
             }
             return y;
           }
