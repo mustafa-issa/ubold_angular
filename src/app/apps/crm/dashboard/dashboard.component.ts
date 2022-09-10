@@ -196,7 +196,7 @@ public getChartOptions(): Highcharts.Options {
 }
 
 public get theme() : string {
-    return localStorage.getItem('theme') || this.theme;
+    return localStorage.getItem('theme') || 'dark';
 }
 
 getDayOfWeek() : number {
@@ -504,7 +504,7 @@ initAreaChart(): void {
   initPiChartOptions() : void{
     this.piChartOptions = {
       chart: {
-        height: 100,
+        height: 150,
         type: 'pie',
         toolbar: {
           show: false
@@ -549,7 +549,7 @@ initAreaChart(): void {
         }
       ],
       chart: {
-        height: 100,
+        height: 150,
         type: "area",
         stacked: false,
         toolbar: {
