@@ -8,6 +8,7 @@ import { UiModule } from 'src/app/shared/ui/ui.module';
 import { EnergyRoutingModule } from './energy-routing.module';
 import { EnergyComponent } from './energy.component';
 import { ChartModule } from 'angular-highcharts';
+import { SimplebarAngularModule } from 'simplebar-angular';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ChartModule } from 'angular-highcharts';
     PageTitleModule,
     EnergyRoutingModule,
     ChartModule,
-    NgbProgressbarModule
+    NgbProgressbarModule,
+    SimplebarAngularModule
   ]
 })
 export class EnergyModule { }

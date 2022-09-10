@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <div class="row">
       <div class="col">
 
@@ -55,11 +55,13 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive">
+                                    <ngx-simplebar style="max-height: 200px;">
+
                                     <table class="table table-borderless table-nowrap table-centered mb-0">
                                         <thead class="table-light">
                                             <tr>
-                                                <th>Building Name</th>
-                                                <th>Alarm
+                                                <th style="position: sticky; top: 0;">Building Name</th>
+                                                <th style="position: sticky; top: 0;">Alarm
                                                     <div class="row">
                                                         <label class="col-4">
                                                           Critical
@@ -73,25 +75,12 @@
                                   
                                                       </div>
                                                 </th>
-                                                <th> 
-                                                    <div class="row">
-                                                        Building
-                                                    </div>
-                                                    <div class="row">
-                                                        Capacity
-                                                    </div>
-
-                                                </th>
-                                                <th>
-                                                    <div class="row">
-                                                        Occupancy
-                                                    </div>
-                                                    <div class="row">
-                                                        Level
-                                                    </div>
+                                                <th style="position: sticky; top: 0;"> 
+                                                    Building Capacity
                                                 </th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
                                             <tr *ngFor="let item of faults">
                                                 <td style="font-weight: bold;">
@@ -139,24 +128,12 @@
                                                     </div>
 
                                                 </td>
-
-                                                <td>
-
-                                                    <div class="col-12 div-circle">
-                                                        <span class="action-sm-icon bg-warning box-shadow-E ">
-                                                            <div class="text-value">
-                                                                {{item.occupancy.count}}
-                                                                {{item.occupancy.percantage}}
-                                                            </div>
-                                                        </span>
-                                                      </div>
-
-                                                </td>
-                                            
                                             </tr>
-        
+                   
                                         </tbody>
+                                    
                                     </table>
+                                </ngx-simplebar>
                                 </div> <!-- end table-responsive-->
         
                         </div> <!-- end row -->
@@ -174,36 +151,40 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive">
+                                    <ngx-simplebar style="max-height: 110px;">
                                     <table class="table table-borderless table-nowrap table-centered mb-0">
                                         <thead class="table-light">
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Run Time</th>
-                                                <th>Total Fault</th>
-                                                <th>Building Capacity</th>
-                                                <th style="width: 50px;"></th>
+                                                <th style="position: sticky; top: 0;">Name</th>
+                                                <th style="position: sticky; top: 0;">Run Time</th>
+                                                <th style="position: sticky; top: 0;">Total Fault</th>
+                                                <th style="position: sticky; top: 0;">Building Capacity</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let item of assets">
-                                                <td>
+                                                <td style="font-weight: bold;">
                                                     {{item.name}}
                                                 </td>
-                                                <td>
-                                                    {{item.runTime}}
+                                                <td style="font-weight: bold;">
+                                                    {{item.runTime}} Hours
                                                 </td>
-                                                <td>
+                                                <td style="font-weight: bold;">
                                                     {{item.fault}}
                                                 </td>
 
-                                                <td>
-                                                    {{item.capacity}}
+                                                <td >
+                                                    <p>
+                                                        <ngb-progressbar [showValue]="true" type="primary" [value]="item.capacity" [striped]="true">
+                                                        </ngb-progressbar>
+                                                    </p>
                                                 </td>
                                             
                                             </tr>
         
                                         </tbody>
                                     </table>
+                                </ngx-simplebar>
                                 </div> <!-- end table-responsive-->
         
                         </div> <!-- end row -->

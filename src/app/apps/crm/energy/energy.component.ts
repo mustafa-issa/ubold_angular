@@ -17,9 +17,9 @@ export class EnergyComponent implements OnInit {
         name: 'Building 2',
         alarms: 
         {
-          critical : '15', 
-          minor : '15', 
-          normal: '15'
+          critical : '2', 
+          minor : '14', 
+          normal: '60'
 
         },
         buildingCapacity: {
@@ -52,8 +52,14 @@ export class EnergyComponent implements OnInit {
 
       this.assets = [
         {
-        name: 'Building 2',
+        name: 'Booster Pump',
         runTime: 22,
+        fault: 10,
+        capacity: 75
+      },
+      {
+        name: 'Cooling Pump',
+        runTime: 13,
         fault: 12,
         capacity: 12
       }]
