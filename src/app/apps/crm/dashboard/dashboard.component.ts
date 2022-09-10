@@ -8,6 +8,7 @@ import { enteredCars } from "./charts/entered-cars";
 import { carbonFootPrint } from "./charts/carbon-foot-print";
 import { dailyCarBrandName } from "./charts/daily-car-brand";
 import theme_dark from 'highcharts/themes/dark-unica';
+import { interval, tap } from "rxjs";
 
 declare var require: any;
 let More = require('highcharts/highcharts-more');
@@ -19,7 +20,24 @@ More(Highcharts);
   styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit {
+    evData = [130, 230, 200, 80, 130, 270, 180];
+    PetrolData = [440, 550, 410, 670, 220, 430, 250];
+    Highcharts: typeof Highcharts = Highcharts;
+    chartOptions?: Highcharts.Options;
   ngOnInit(): void {
+    this.chartOptions = this.getChartOptions();
+    var dayOfWeek = this.getDayOfWeek();
+    this.evData[dayOfWeek] = this.evData[dayOfWeek] / 10;
+    this.PetrolData[dayOfWeek] = this.PetrolData[dayOfWeek] / 10;
+    interval(10000) 
+      .pipe(
+        tap(() => {
+            this.evData[dayOfWeek] = this.evData[dayOfWeek] + 1;
+            this.PetrolData[dayOfWeek] = this.PetrolData[dayOfWeek] + 2;
+            this.chartOptions = this.getChartOptions();
+        })
+      )
+      .subscribe();
     if(this.theme === 'dark') {
         theme_dark(Highcharts);
     }
@@ -108,8 +126,66 @@ export class DashboardComponent implements OnInit {
 ];
 
 
+public getChartOptions(): Highcharts.Options {
+    return {
+        credits: {
+          enabled: false
+        },
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Total number of cars entered',
+            align: 'left'
+        },
+        xAxis: {
+            categories: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Cars'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    textOutline: 'none'
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        series: [{
+          name: 'EV',
+          type: 'column',
+          data: this.evData
+      },{
+            name: 'Petrol',
+            type: 'column',
+            data: this.PetrolData
+        }]
+      };
+}
+
 public get theme() : string {
     return localStorage.getItem('theme') || this.theme;
+}
+
+getDayOfWeek() : number {
+    const d = new Date();
+    let day = d.getDay(); 
+    return day;  
 }
 
 }

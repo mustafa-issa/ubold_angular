@@ -9,7 +9,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { ChartModule } from 'angular-highcharts';
 import { SimplebarAngularModule } from 'simplebar-angular';
-
+import { HighchartsChartModule } from 'highcharts-angular';
 @NgModule({
   declarations: [
     DashboardComponent
@@ -23,7 +23,8 @@ import { SimplebarAngularModule } from 'simplebar-angular';
     PageTitleModule,
     DashboardRoutingModule,
     ChartModule,
-    SimplebarAngularModule
+    SimplebarAngularModule,
+    HighchartsChartModule
   ]
 })
 export class DashboardModule { }
