@@ -24,8 +24,25 @@ export class DashboardComponent implements OnInit {
     PetrolData = [440, 550, 410, 670, 220, 430, 250];
     Highcharts: typeof Highcharts = Highcharts;
     chartOptions?: Highcharts.Options;
+
+    areaChartOptions: any;
+    lineChartOptions: any;
+
+    columnChartOptions : any;
+    barChartOptions2 : any;
+
+    piChartOptions: any;
+    singleAreaChartOptions: any;
   ngOnInit(): void {
     this.chartOptions = this.getChartOptions();
+    this.initAreaChart();
+    this.initLineChart();
+    this.initColumnChart();
+    this.initBarChartOptions2();
+
+    this.initPiChartOptions();
+    this.initSingleAreaChartOptions();
+
     var dayOfWeek = this.getDayOfWeek();
     this.evData[dayOfWeek] = this.evData[dayOfWeek] / 10;
     this.PetrolData[dayOfWeek] = this.PetrolData[dayOfWeek] / 10;
@@ -45,7 +62,7 @@ export class DashboardComponent implements OnInit {
 
   cEStandard = cEStandard;
     chart2 = DailyCars.dailyCars;
-    chart3 = carsFuel;
+    chart3 = carsFuel(this.theme);
     chart4 = enteredCars;
     chart5 = carbonFootPrint;
     chart6 = dailyCarBrandName;
@@ -187,5 +204,417 @@ getDayOfWeek() : number {
     let day = d.getDay(); 
     return day;  
 }
+
+initAreaChart(): void {
+    this.areaChartOptions = {
+      series: [
+        {
+          name: "TEAM A",
+          type: "area",
+          data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+        },
+        {
+          name: "TEAM B",
+          type: "area",
+          data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
+        }
+      ],
+      chart: {
+        height: 300,
+        type: "line",
+        stacked: false,
+        toolbar: {
+          show: false,
+        }
+      },
+      stroke: {
+        width: [0, 2, 5],
+        curve: "smooth"
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: "50%"
+        }
+      },
+      colors: ['#727cf5', '#39afd1', '#fa5c7c'],
+      fill: {
+        opacity: [0.85, 0.25, 1],
+        gradient: {
+          inverseColors: false,
+          shade: "light",
+          type: "vertical",
+          opacityFrom: 0.85,
+          opacityTo: 0.55,
+          stops: [0, 100, 100, 100]
+        }
+      },
+      labels: [
+        "01/01/2003",
+        "02/01/2003",
+        "03/01/2003",
+        "04/01/2003",
+        "05/01/2003",
+        "06/01/2003",
+        "07/01/2003",
+        "08/01/2003",
+        "09/01/2003",
+        "10/01/2003",
+        "11/01/2003"
+      ],
+      markers: {
+        size: 0
+      },
+      xaxis: {
+        type: "datetime"
+      },
+      yaxis: {
+        title: {
+          text: "Points"
+        },
+        min: 0
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        y: {
+          formatter: function (y: number) {
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " points";
+            }
+            return y;
+          }
+        }
+      }
+    };
+  }
+  
+  initLineChart(): void {
+    this.lineChartOptions = {
+      series: [
+        {
+          name: "Lineeeeeeeeeeeee",
+          type: "line",
+          data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+        }
+      ],
+      chart: {
+        height: 300,
+        type: "line",
+        stacked: false,
+        toolbar: {
+          show: false,
+        }
+      },
+      stroke: {
+        curve: "smooth"
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: "50%"
+        }
+      },
+      colors: ['#fa5c7c'],
+      fill: {
+        opacity: [1],
+        gradient: {
+          inverseColors: false,
+          shade: "light",
+          type: "vertical",
+          opacityFrom: 0.85,
+          opacityTo: 0.55,
+          stops: [0, 100, 100, 100]
+        }
+      },
+      labels: [
+        "01/01/2003",
+        "02/01/2003",
+        "03/01/2003",
+        "04/01/2003",
+        "05/01/2003",
+        "06/01/2003",
+        "07/01/2003",
+        "08/01/2003",
+        "09/01/2003",
+        "10/01/2003",
+        "11/01/2003"
+      ],
+      markers: {
+        size: 0
+      },
+      xaxis: {
+        type: "datetime"
+      },
+      yaxis: {
+        title: {
+          text: "Points"
+        },
+        min: 0
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        y: {
+          formatter: function (y: number) {
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " points";
+            }
+            return y;
+          }
+        }
+      }
+    };
+  }
+
+  initColumnChart(): void {
+    this.columnChartOptions = {
+      series: [
+        {
+          name: "sasasa",
+          type: "column",
+          data: [30, 25, 36, 30, 45, 35, 64]
+        }
+      ],
+      chart: {
+        height: 300,
+        type: "line",
+        stacked: false,
+        toolbar: {
+          show: false,
+        }
+      },
+      stroke: {
+        curve: "smooth"
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: "50%"
+        }
+      },
+      colors: ['#fa5c7c'],
+      fill: {
+        opacity: [1],
+        gradient: {
+          inverseColors: false,
+          shade: "light",
+          type: "vertical",
+          opacityFrom: 0.85,
+          opacityTo: 0.55,
+          stops: [0, 100, 100, 100]
+        }
+      },
+      labels: [
+        "01/01/2003",
+        "02/01/2003",
+        "03/01/2003",
+        "04/01/2003",
+        "05/01/2003",
+        "06/01/2003",
+        "07/01/2003"
+      ],
+      markers: {
+        size: 0
+      },
+      xaxis: {
+        type: "datetime"
+      },
+      yaxis: {
+        title: {
+          text: "Points"
+        },
+        min: 0
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        y: {
+          formatter: function (y: number) {
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " points";
+            }
+            return y;
+          }
+        }
+      }
+    };
+  }
+
+  initBarChartOptions2(): void {
+    this.barChartOptions2 = {
+      series: [
+        {
+          name: "Marine Sprite",
+          data: [44, 55, 41, 37, 22, 43, 21]
+        },
+        {
+          name: "Striking Calf",
+          data: [53, 32, 33, 52, 13, 43, 32]
+        },
+      ],
+      chart: {
+        type: "bar",
+        height: 300,
+        stacked: true,
+        toolbar: {
+          show: false
+        }
+
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false
+        }
+      },
+      stroke: {
+        width: 1,
+        colors: ["#fff"]
+      },
+
+      xaxis: {
+        categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
+        labels: {
+          formatter: (val: string) => {
+            return val + "K";
+          }
+        }
+      },
+      yaxis: {
+        title: {
+          text: undefined
+        }
+      },
+      tooltip: {
+        y: {
+          formatter: function (val: number) {
+            return val + "K";
+          }
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "left",
+        offsetX: 40
+      }
+    };
+  }
+
+
+  initPiChartOptions() : void{
+    this.piChartOptions = {
+      chart: {
+        height: 100,
+        type: 'pie',
+        toolbar: {
+          show: false
+        }
+      },
+      series: [44, 55, 41, 17, 15],
+      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+      colors: ["#6658dd", "#4fc6e1", "#4a81d4", "#00b19d", "#f1556c"],
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        show: true,
+        position: 'bottom',
+        horizontalAlign: 'center',
+        // verticalAlign: 'middle',
+        floating: false,
+        fontSize: '14px',
+        offsetX: 0,
+        offsetY: -10
+      },
+      responsive: [{
+        breakpoint: 600,
+        options: {
+          chart: {
+            height: 240
+          },
+          legend: {
+            show: false
+          },
+        }
+      }]
+    }
+  }
+  initSingleAreaChartOptions() : void {
+    this.singleAreaChartOptions = {
+      series: [
+        {
+          name: "TEAM A",
+          type: "area",
+          data: [23, 11, 22, 27, 13]
+        }
+      ],
+      chart: {
+        height: 100,
+        type: "area",
+        stacked: false,
+        toolbar: {
+          show: false,
+        }
+      },
+      stroke: {
+        width: [],
+        curve: "smooth"
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: "50%"
+        }
+      },
+      colors: ['#727cf5', '#39afd1', '#fa5c7c'],
+      fill: {
+        opacity: [0.85, 0.25, 1],
+        gradient: {
+          inverseColors: false,
+          shade: "light",
+          type: "vertical",
+          opacityFrom: 0.85,
+          opacityTo: 0.55,
+          stops: [0, 100, 100, 100]
+        }
+      },
+      labels: [
+        "01/01/2003",
+        "02/01/2003",
+        "03/01/2003",
+        "04/01/2003",
+        "05/01/2003",
+        "06/01/2003",
+        "07/01/2003",
+        "08/01/2003",
+        "09/01/2003",
+        "10/01/2003",
+        "11/01/2003"
+      ],
+      markers: {
+        size: 0
+      },
+      xaxis: {
+        type: "datetime"
+      },
+      yaxis: {
+        title: {
+          text: "Points"
+        },
+        min: 0
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        y: {
+          formatter: function (y: number) {
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " points";
+            }
+            return y;
+          }
+        }
+      }
+    };
+  }
 
 }

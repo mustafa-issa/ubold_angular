@@ -34,24 +34,61 @@
 
 <div style="margin-top: -15px; margin-bottom: 10px;" class="row row-cols-xs-1 row-cols-lg-5">
     <div class="col">
-        <div [chart]="cEStandard"></div>
+        <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+        <div id="mixed-chart">
+            <apx-chart class="apex-charts" [series]="areaChartOptions.series" [chart]="areaChartOptions.chart"
+                    [yaxis]="areaChartOptions.yaxis" [xaxis]="areaChartOptions.xaxis"
+                    [labels]="areaChartOptions.labels" [stroke]="areaChartOptions.stroke"
+                    [plotOptions]="areaChartOptions.plotOptions" [markers]="areaChartOptions.markers"
+                    [fill]="areaChartOptions.fill" [tooltip]="areaChartOptions.tooltip"
+                    [colors]="areaChartOptions.colors"></apx-chart>
+        </div>
+    </app-ui-portlet-card>
     </div>
 
     <div class="col">
-        <div [chart]="chart2"></div>
+        <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+            <div id="mixed-chart">
+                <apx-chart class="apex-charts" [series]="lineChartOptions.series" [chart]="lineChartOptions.chart"
+                        [yaxis]="lineChartOptions.yaxis" [xaxis]="lineChartOptions.xaxis"
+                        [labels]="lineChartOptions.labels" [stroke]="lineChartOptions.stroke"
+                        [plotOptions]="lineChartOptions.plotOptions" [markers]="lineChartOptions.markers"
+                        [fill]="lineChartOptions.fill" [tooltip]="lineChartOptions.tooltip"
+                        [colors]="lineChartOptions.colors"></apx-chart>
+            </div>
+        </app-ui-portlet-card>
     </div>
     <div class="col">
-        <div [chart]="chart3"></div>
+        <app-ui-portlet-card cardTitle="Stacked Bar Chart">
+            <div [chart]="chart3"></div>
+        </app-ui-portlet-card>
+
     </div>
+
     <div class="col">
-        <highcharts-chart *ngIf="chartOptions"
-        [Highcharts]="Highcharts"
-        [options]="chartOptions"
-        style="width: 100%; height: 400px; display: block;"
-        ></highcharts-chart>
+        <app-ui-portlet-card cardTitle="Stacked Bar Chart">
+
+            <div id="bar-chart-stacked">
+                <apx-chart class="apex-charts" [series]="barChartOptions2.series!" [chart]="barChartOptions2.chart!"
+                    [dataLabels]="barChartOptions2.dataLabels!" [plotOptions]="barChartOptions2.plotOptions!"
+                    [xaxis]="barChartOptions2.xaxis!" [stroke]="barChartOptions2.stroke!"
+                    [fill]="barChartOptions2.fill!" [yaxis]="barChartOptions2.yaxis!"
+                    [tooltip]="barChartOptions2.tooltip!" [legend]="barChartOptions2.legend!"></apx-chart>
+            </div>
+        </app-ui-portlet-card>
     </div>
+
     <div class="col">
-        <div [chart]="chart5"></div>
+        <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+            <div id="mixed-chart">
+                <apx-chart class="apex-charts" [series]="columnChartOptions.series" [chart]="columnChartOptions.chart"
+                        [yaxis]="columnChartOptions.yaxis" [xaxis]="columnChartOptions.xaxis"
+                        [labels]="columnChartOptions.labels" [stroke]="columnChartOptions.stroke"
+                        [plotOptions]="columnChartOptions.plotOptions" [markers]="columnChartOptions.markers"
+                        [fill]="columnChartOptions.fill" [tooltip]="columnChartOptions.tooltip"
+                        [colors]="columnChartOptions.colors"></apx-chart>
+            </div>
+        </app-ui-portlet-card>
     </div>
 </div>
 
@@ -83,7 +120,7 @@
     <div class="col-md-6">
         <div dir="ltr">
             <div>
-                <img style="width:100%" src="assets/images/qatar.png" srcset="">
+                <img style="width:100%" height="434" src="assets/images/qatar.png" srcset="">
             </div>
         </div>
     </div> <!-- end col-->
@@ -92,12 +129,30 @@
         <div class="pb-2">
             <div class="row" dir="ltr">
                 <div class="col">
-                    <div [chart]="chart6"></div>
+                    <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+                        <div id="mixed-chart">
+                            <apx-chart class="apex-charts" [series]="piChartOptions.series" [chart]="piChartOptions.chart"
+                                    [yaxis]="piChartOptions.yaxis" [xaxis]="piChartOptions.xaxis"
+                                    [labels]="piChartOptions.labels" [stroke]="piChartOptions.stroke"
+                                    [plotOptions]="piChartOptions.plotOptions" [markers]="piChartOptions.markers"
+                                    [fill]="piChartOptions.fill" [tooltip]="piChartOptions.tooltip"
+                                    [colors]="piChartOptions.colors"></apx-chart>
+                        </div>
+                    </app-ui-portlet-card>
                 </div>
             </div>
             <div class="row" dir="ltr">
                 <div class="col mt-2">
-                    <div [chart]="chart8"></div>
+                    <app-ui-portlet-card cardTitle="Mixed Line, area and column">
+                        <div id="mixed-chart">
+                            <apx-chart class="apex-charts" [series]="singleAreaChartOptions.series" [chart]="singleAreaChartOptions.chart"
+                                    [yaxis]="singleAreaChartOptions.yaxis" [xaxis]="singleAreaChartOptions.xaxis"
+                                    [labels]="singleAreaChartOptions.labels" [stroke]="singleAreaChartOptions.stroke"
+                                    [plotOptions]="singleAreaChartOptions.plotOptions" [markers]="singleAreaChartOptions.markers"
+                                    [fill]="singleAreaChartOptions.fill" [tooltip]="singleAreaChartOptions.tooltip"
+                                    [colors]="singleAreaChartOptions.colors"></apx-chart>
+                        </div>
+                    </app-ui-portlet-card>
                 </div>
             </div>
         </div>

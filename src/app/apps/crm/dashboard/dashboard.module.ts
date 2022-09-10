@@ -24,7 +24,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     DashboardRoutingModule,
     ChartModule,
     SimplebarAngularModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    NgApexchartsModule,
   ]
 })
 export class DashboardModule { }
