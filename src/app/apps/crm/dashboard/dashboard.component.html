@@ -26,70 +26,71 @@
 </div>
 <!-- end row-->
 
-<div style="margin-top: -50px; margin-bottom: 10px;" class="row row-cols-xs-1 row-cols-lg-5">
+<div style="margin-top: -15px; margin-bottom: 10px;" class="row row-cols-xs-1 row-cols-lg-5">
     <div class="col">
-        <div id="deal-analytics" class="mt-4">
-            <div [chart]="cEStandard"></div>
-        </div>
+        <div [chart]="cEStandard"></div>
     </div>
 
     <div class="col">
-        <div id="deal-analytics" class="mt-4">
-            <div [chart]="chart2"></div>
-        </div>
+        <div [chart]="chart2"></div>
     </div>
     <div class="col">
-        <div id="deal-analytics" class="mt-4">
-            <div [chart]="chart3"></div>
-        </div>
+        <div [chart]="chart3"></div>
     </div>
     <div class="col">
-        <div id="deal-analytics" class="mt-4">
-            <div [chart]="chart4"></div>
-        </div>
+        <div [chart]="chart4"></div>
     </div>
     <div class="col">
-        <div id="deal-analytics" class="mt-4">
-            <div [chart]="chart5"></div>
-        </div>
+        <div [chart]="chart5"></div>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-xl-3">
-        <div class="card">
-            <div class="card-body pb-2">
-                <div dir="ltr">
-                    <div id="deal-analytics" class="mt-4">
-                        <div [chart]="chart6"></div>
+    <div class="col-md-3">
+        <div>
+            <h4 class="header-title mb-3">Daily car type quantity</h4>
+            <ngx-simplebar class="inbox-widget">
+                <div class="inbox-item"  [style.maxHeight.px]="50" *ngFor="let message of messages">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="badge font-14 bg-soft-danger text-danger p-1">
+                                {{message.value}}</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="avatar-md rounded">
+                                <i class="avatar-title font-22 text-white" [ngClass]="message.icon"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <p class="inbox-item-text">{{message.text}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> <!-- end card -->
+            </ngx-simplebar> <!-- end inbox-widget -->
+        </div>
     </div> <!-- end col-->
 
-    <div class="col-xl-6">
-        <div class="card">
-            <div class="card-body">
-                <div dir="ltr">
-                    <div id="deal-analytics" class="mt-4">
-                        <div [chart]="chart7"></div>
-                    </div>
-                </div>
+    <div class="col-md-6">
+        <div dir="ltr">
+            <div>
+                <img style="width:100%" src="assets/images/qatar.png" srcset="">
             </div>
-        </div> <!-- end card -->
+        </div>
     </div> <!-- end col-->
 
-    <div class="col-xl-3">
-        <div class="card">
-            <div class="card-body pb-2">
-                <div dir="ltr">
-                    <div id="deal-analytics" class="mt-4">
-                        <div [chart]="chart8"></div>
-                    </div>
+    <div class="col-md-3">
+        <div class="pb-2">
+            <div class="row" dir="ltr">
+                <div class="col">
+                    <div [chart]="chart6"></div>
                 </div>
             </div>
-        </div> <!-- end card -->
+            <div class="row" dir="ltr">
+                <div class="col mt-2">
+                    <div [chart]="chart8"></div>
+                </div>
+            </div>
+        </div>
     </div> <!-- end col-->
 </div>
 

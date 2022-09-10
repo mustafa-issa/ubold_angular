@@ -1,6 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { Chart } from "angular-highcharts";
+import { carsFuel } from "./charts/cars-fuel";
+import { cEStandard } from "./charts/ce-standard";
+import { DailyCars } from "./charts/daily-cars-traffic";
+import * as Highcharts from 'highcharts';
+import { enteredCars } from "./charts/entered-cars";
+import { carbonFootPrint } from "./charts/carbon-foot-print";
+import { dailyCarBrandName } from "./charts/daily-car-brand";
+//import theme from 'highcharts/themes/grid';
 
+declare var require: any;
+const More = require('highcharts/highcharts-more');
+More(Highcharts);
+//theme(Highcharts);
 @Component({
   selector: "app-crm-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -10,188 +22,86 @@ export class DashboardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  cEStandard = new Chart({
-    chart: {
-      type: "area",
+  cEStandard = cEStandard;
+  chart2 = DailyCars.dailyCars;
+  chart3 = carsFuel;
+  chart4 = enteredCars;
+  chart5 = carbonFootPrint;
+  chart6 = dailyCarBrandName;
+  messages: any = [
+    {
+        value: 20,
+        icon: 'fas fa-motorcycle',
+        text: "Motorcycle",
     },
-    title: {
-      text: "CO2 Emission VS EU Standard",
+    {
+        value: 320,
+        icon: 'fas fa-car',
+        text: 'Sedan',
     },
-    credits: {
-      enabled: false,
+    {
+        value: 114,
+        icon: 'fas fa-car-side',
+        text: 'SUV',
     },
-    xAxis: {
-      allowDecimals: false,
-      accessibility: {
-        rangeDescription: "Range: 1940 to 2017.",
-      },
+    {
+        value: 25,
+        icon: 'fas fa-truck-pickup',
+        text: 'Pickup',
     },
-    yAxis: {
-      title: {
-        text: "Nuclear weapon states",
-      },
+    {
+        value: 50,
+        icon: 'fas fa-shuttle-van',
+        text: 'Van',
     },
-    tooltip: {
-      pointFormat:
-        "{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}",
+    {
+        value: 10,
+        icon: 'fas fa-bus',
+        text: 'Bus',
     },
-    plotOptions: {
-      series: {
-        tooltip: {
-        
-        }
-      },
-      area: {
-        marker: {
-          enabled: false,
-          symbol: "circle",
-          radius: 2,
-          states: {
-            hover: {
-              enabled: true,
-            },
-          },
-        },
-      },
+    {
+        value: 2,
+        icon: 'fas fa-truck',
+        text: 'Truck',
     },
-    series: [{
-      name: 'Carbon',
-      type: 'area',
-      data: [31, 40, 28, 51, 42, 109, 100]
-  }, {
-      name: 'EU',
-      type: 'area',
-      data: [11, 32, 95, 32, 34, 52, 41]
-  }]
-  });
-  chart2 = new Chart({
-    chart: {
-      type: "line",
-    },
-    title: {
-      text: "Linechart",
-    },
-    credits: {
-      enabled: false,
-    },
-    series: [
-      {
-        name: "Line 1",
-        type: "line",
-        data: [1, 2, 3],
-      },
-    ],
-  });
-  chart3 = new Chart({
-    chart: {
-      type: "line",
-    },
-    title: {
-      text: "Linechart",
-    },
-    credits: {
-      enabled: false,
-    },
-    series: [
-      {
-        name: "Line 1",
-        type: "line",
-        data: [1, 2, 3],
-      },
-    ],
-  });
-  chart4 = new Chart({
-    chart: {
-      type: "line",
-    },
-    title: {
-      text: "Linechart",
-    },
-    credits: {
-      enabled: false,
-    },
-    series: [
-      {
-        name: "Line 1",
-        type: "line",
-        data: [1, 2, 3],
-      },
-    ],
-  });
-
-  chart5 = new Chart({
-    chart: {
-      type: "line",
-    },
-    title: {
-      text: "Linechart",
-    },
-    credits: {
-      enabled: false,
-    },
-    series: [
-      {
-        name: "Line 1",
-        type: "line",
-        data: [1, 2, 3],
-      },
-    ],
-  });
-
-  chart6 = new Chart({
-    chart: {
-      type: "line",
-    },
-    title: {
-      text: "Linechart",
-    },
-    credits: {
-      enabled: false,
-    },
-    series: [
-      {
-        name: "Line 1",
-        type: "line",
-        data: [1, 2, 3],
-      },
-    ],
-  });
-
-  chart7 = new Chart({
-    chart: {
-      type: "line",
-    },
-    title: {
-      text: "Linechart",
-    },
-    credits: {
-      enabled: false,
-    },
-    series: [
-      {
-        name: "Line 1",
-        type: "line",
-        data: [1, 2, 3],
-      },
-    ],
-  });
+    {
+      value: 5,
+      icon: 'fas fa-tractor',
+      text: 'Others',
+  },
+];
 
   chart8 = new Chart({
     chart: {
-      type: "line",
+        type: 'areaspline',
+        height: '50%',
+        marginTop: 10,
+        marginBottom: 0,
+        marginLeft: 0,
+        marginRight: 0,
+        plotShadow: false,
+        borderWidth: 0,
+        plotBorderWidth: 0
     },
+    
     title: {
-      text: "Linechart",
+        text: ''
+    },
+    legend: {
+        enabled: false
     },
     credits: {
-      enabled: false,
+        enabled: false
     },
+    yAxis: {
+      title: {
+          text: ''
+      }
+  },
     series: [
       {
-        name: "Line 1",
-        type: "line",
-        data: [1, 2, 3],
-      },
-    ],
-  });
+        type: 'areaspline',
+        data: [10, 20, 15, 30, 35, 30, 45, 59, 30, 35, 25, 29, 15]
+    }]
+});
 }

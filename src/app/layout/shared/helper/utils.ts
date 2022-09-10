@@ -64,7 +64,7 @@ const changeBodyAttribute = (attribute: string, value?: string, action = 'set'):
 const getLayoutConfig = (layoutType: string = 'horizontal'): LayoutConfig => {
     let config: LayoutConfig = {
         layoutWidth: LAYOUT_WIDTH_FLUID,
-        layoutColor: LAYOUT_COLOR_LIGHT,
+        layoutColor: LAYOUT_COLOR_DARK,
         menuPosition: MENU_POSITION_FIXED,
         leftSidebarTheme: LEFT_SIDEBAR_THEME_LIGHT,
         leftSidebarType: LEFT_SIDEBAR_TYPE_DEFAULT,
