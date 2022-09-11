@@ -24,7 +24,7 @@ import { SimplebarAngularModule } from 'simplebar-angular';
     EnergyRoutingModule,
     ChartModule,
     NgbProgressbarModule,
-    SimplebarAngularModule
+    SimplebarAngularModule,
   ]
 })
 export class EnergyModule { }

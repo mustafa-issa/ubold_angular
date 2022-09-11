@@ -1,6 +1,6 @@
 <div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
 
         <div class="row">
             <ng-container
@@ -28,15 +28,30 @@
         </div> <!-- end row -->
         
         <div class="row">
-            <div id="deal-analytics" class="mt-4">
-                <div [chart]="cEStandard"></div>
-            </div>
+            <app-ui-portlet-card cardTitle="Daily Cars Traffic">
+                <div id="mixed-chart">
+                    <apx-chart class="apex-charts" [series]="lineChartOptions.series" [chart]="lineChartOptions.chart"
+                            [yaxis]="lineChartOptions.yaxis" [xaxis]="lineChartOptions.xaxis"
+                            [labels]="lineChartOptions.labels" [stroke]="lineChartOptions.stroke"
+                            [plotOptions]="lineChartOptions.plotOptions" [markers]="lineChartOptions.markers"
+                            [fill]="lineChartOptions.fill" [tooltip]="lineChartOptions.tooltip"
+                            [colors]="lineChartOptions.colors"></apx-chart>
+                </div>
+            </app-ui-portlet-card>
         </div>
     
         <div class="row">
-            <div id="deal-analytics" class="mt-4">
-                <div [chart]="chart2"></div>
-            </div>
+            <app-ui-portlet-card cardTitle="Basic Bar Chart">
+
+                <div id="bar-chart">
+    
+                    <apx-chart class="apex-charts" [series]="barChartOptions1.series" [chart]="barChartOptions1.chart"
+                        [dataLabels]="barChartOptions1.dataLabels" [plotOptions]="barChartOptions1.plotOptions"
+                        [xaxis]="barChartOptions1.xaxis" [colors]="barChartOptions1.colors"></apx-chart>
+    
+                </div>
+    
+            </app-ui-portlet-card>
         </div>
 
       </div> <!-- end col -->
@@ -204,27 +219,51 @@
         </div>
 
       </div> <!-- end col -->
-      <div class="col"> 
+      <div class="col-3"> 
         <div class="row">
-            <div id="deal-analytics" class="mt-4">
-                <div [chart]="chart3"></div>
+            <div class="row">
+                <app-ui-portlet-card cardTitle="Basic Bar Chart">
+    
+                    <div id="bar-chart">
+        
+                        <apx-chart class="apex-charts" [series]="euiOptions.series" [chart]="euiOptions.chart"
+                            [dataLabels]="euiOptions.dataLabels" [plotOptions]="euiOptions.plotOptions"
+                            [xaxis]="euiOptions.xaxis" [colors]="euiOptions.colors"></apx-chart>
+        
+                    </div>
+        
+                </app-ui-portlet-card>
             </div>
         </div> <!-- end row -->
         <div class="row">
-            <div id="deal-analytics" class="mt-4">
-                <div [chart]="chart4"></div>
+            <div class="row">
+                <app-ui-portlet-card cardTitle="Basic Bar Chart">
+    
+                    <div id="bar-chart">
+        
+                        <apx-chart class="apex-charts" [series]="cuiOptions.series" [chart]="cuiOptions.chart"
+                            [dataLabels]="cuiOptions.dataLabels" [plotOptions]="cuiOptions.plotOptions"
+                            [xaxis]="cuiOptions.xaxis" [colors]="cuiOptions.colors"></apx-chart>
+        
+                    </div>
+        
+                </app-ui-portlet-card>
             </div>
         </div> <!-- end row -->
         <div class="row">
-            <div id="deal-analytics" class="mt-4">
-                <div [chart]="chart5"></div>
+            <div class="row">
+                <app-ui-portlet-card cardTitle="Forecasting Number Of Cars">
+                        <div id="mixed-chart">
+                            <apx-chart class="apex-charts" [series]="singleAreaChartOptions.series" [chart]="singleAreaChartOptions.chart"
+                                    [yaxis]="singleAreaChartOptions.yaxis" [xaxis]="singleAreaChartOptions.xaxis"
+                                    [labels]="singleAreaChartOptions.labels" [stroke]="singleAreaChartOptions.stroke"
+                                    [plotOptions]="singleAreaChartOptions.plotOptions" [markers]="singleAreaChartOptions.markers"
+                                    [fill]="singleAreaChartOptions.fill" [tooltip]="singleAreaChartOptions.tooltip"
+                                    [colors]="singleAreaChartOptions.colors"></apx-chart>
+                        </div>
+                    </app-ui-portlet-card>
             </div>
-        </div> <!-- end row --> 
-        <div class="row">
-            <div id="deal-analytics" class="mt-4">
-                <div [chart]="chart3"></div>
-            </div>
-        </div>
+        </div> <!-- end row -->
 
       </div> <!-- end col -->
     </div>
