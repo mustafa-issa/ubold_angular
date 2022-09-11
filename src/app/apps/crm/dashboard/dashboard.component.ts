@@ -33,7 +33,18 @@ export class DashboardComponent implements OnInit {
 
     piChartOptions: any;
     singleAreaChartOptions: any;
- 
+    isClosed: boolean = false;
+    isCollapsed: boolean = false;
+    refreshRequsted: boolean = false;
+    refreshContent(): void {
+        this.refreshRequsted = true;
+        setTimeout(() => {
+          this.refreshRequsted = false;
+        }, 1000);
+      }
+      closeCard(): void {
+        this.isClosed = true;
+      }
   ngOnInit(): void {
     this.chartOptions = this.getChartOptions();
     this.initAreaChart();
