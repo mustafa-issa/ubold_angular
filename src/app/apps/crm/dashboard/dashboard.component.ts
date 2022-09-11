@@ -33,11 +33,14 @@ export class DashboardComponent implements OnInit {
 
     piChartOptions: any;
     singleAreaChartOptions: any;
+ 
   ngOnInit(): void {
     this.chartOptions = this.getChartOptions();
     this.initAreaChart();
     this.initLineChart();
     this.initColumnChart();
+
+
     this.initBarChartOptions2();
 
     this.initPiChartOptions();
@@ -612,5 +615,7 @@ initAreaChart(): void {
       }
     };
   }
+
+
 
 }

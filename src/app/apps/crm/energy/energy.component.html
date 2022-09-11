@@ -4,31 +4,31 @@
 
         <div class="row">
             <ng-container
-                *ngTemplateOutlet="StatiscticsCard;context:{icon:'dripicons-stopwatch',variant:'blue',stats:4,desc:'Car Staying hours'}">
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'w-icon bg-warning',variant:'blue',stats:154, statsDExc: 'MWh',desc:'Total Buildings Energy Consumptions'}">
             </ng-container>
     
         </div> <!-- end row -->
     
         <div class="row">
             <ng-container
-                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-pine-tree',variant:'success',stats:3250,desc:'Carbon Emission as Trees'}">
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-pine-tree',variant:'success',stats:1320 , statsDExc: 'Cars/day',desc:'Total carbon emission from buildings as cars'}">
             </ng-container>
     
         </div> <!-- end row -->
         <div class="row">
             <ng-container
-                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-car-brake-parking',variant:'danger',stats:53000,desc:'Available Parking Slots'}">
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-car-brake-parking',variant:'danger',stats:2450 , statsDExc: 'Cars/day',desc:'Building CO2 as cars + actual cars'}">
             </ng-container>
     
         </div> <!-- end row -->
         <div class="row">
             <ng-container
-                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-hours-24',variant:'warning',stats:4500,desc:'Cars Over night'}">
+                *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-hours-24',variant:'warning',stats:43120 , statsDExc: 'Ryal Qatary',desc:'Total Energy Cost to Qatar Ryal'}">
             </ng-container>
         </div> <!-- end row -->
         
         <div class="row">
-            <app-ui-portlet-card cardTitle="Daily Cars Traffic">
+            <app-ui-portlet-card cardTitle="Product Trends by Month">
                 <div id="mixed-chart">
                     <apx-chart class="apex-charts" [series]="lineChartOptions.series" [chart]="lineChartOptions.chart"
                             [yaxis]="lineChartOptions.yaxis" [xaxis]="lineChartOptions.xaxis"
@@ -87,6 +87,9 @@
                                                 <th style="position: sticky; top: 0;"> 
                                                     Building Capacity
                                                 </th>
+                                                <th style="position: sticky; top: 0;">
+                                                    Occupancy Level
+                                                </th>
                                             </tr>
                                         </thead>
 
@@ -136,6 +139,17 @@
                                                         </p>
                                                     </div>
 
+                                                </td>
+
+                                                <td>
+                                                    <div>
+                                                        <!--div id="radial-chart">
+                                                            <apx-chart class="apex-charts" [series]="item.occupancy.series"
+                                                                [chart]="item.occupancy.chart" [plotOptions]="item.occupancy.plotOptions"
+                                                                [labels]="item.occupancy.labels" [colors]="item.occupancy.colors">
+                                                            </apx-chart>
+                                                        </div-->
+                                                    </div>
                                                 </td>
                                             </tr>
                    
@@ -222,7 +236,7 @@
       <div class="col-3"> 
         <div class="row">
             <div class="row">
-                <app-ui-portlet-card cardTitle="Basic Bar Chart">
+                <app-ui-portlet-card cardTitle="Energy Utilization Index">
     
                     <div id="bar-chart">
         
@@ -237,7 +251,7 @@
         </div> <!-- end row -->
         <div class="row">
             <div class="row">
-                <app-ui-portlet-card cardTitle="Basic Bar Chart">
+                <app-ui-portlet-card cardTitle="Cost Utilization Index">
     
                     <div id="bar-chart">
         
@@ -271,18 +285,18 @@
 
 
 <!-- reusable templates -->
-<ng-template #StatiscticsCard let-icon="icon" let-variant="variant" let-stats="stats" let-desc="desc">
-    <div class="card bg-pattern">
+<ng-template #StatiscticsCard let-icon="icon" let-variant="variant" let-stats="stats" let-desc="desc" let-statsDExc="statsDExc">
+    <div class="card">
         <div class="card-body">
-            <div class="row">
+            <div style="margin-top: -20px; margin-bottom: -20px;" class="row">
                 <div class="col-4">
-                    <div class="avatar-md bg-{{variant}} rounded">
+                    <div style="margin-top: -20px; margin-bottom: -20px;" class="avatar-md bg-{{variant}} rounded">
                         <i [class]="icon" [ngClass]="{' avatar-title font-22 text-white': icon}"></i>
                     </div>
                 </div>
                 <div class="col-8">
                     <div class="text-end">
-                        <h3 class="text-dark my-1"><span [countUp]="stats">{{stats | number}}</span>
+                        <h3 class="text-dark my-1"><span [countUp]="stats">{{stats | number}}</span> <h6> {{statsDExc}}</h6>
                         </h3>
                         <p class="text-muted mb-0 text-truncate">{{desc}}</p>
                     </div>
