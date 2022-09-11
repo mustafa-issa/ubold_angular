@@ -119,7 +119,7 @@ export class EnergyComponent implements OnInit {
         {
           name: "Cars",
           type: "line",
-          data: [0, 5000, 7000, 8250, 11300, 10000, 14500, 13000, 18000, 19200, 17500, 20100, 20500, 18500, 17200, 18000, 14000, 15000, 11000, 9000, 7000, 5000, 0]
+          data: [0, 30, 90, 120, 150, 150, 210, 240, 270, 300, 330, 360 ]
         }
       ],
       chart: {
@@ -156,8 +156,7 @@ export class EnergyComponent implements OnInit {
         size: 0
       },
       xaxis: {
-        categories: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-    tickAmount: 8  // optional tickAmount valu
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
        
       },
       yaxis: {
@@ -186,7 +185,7 @@ export class EnergyComponent implements OnInit {
       series: [
         {
           name: "basic",
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+          data: [400, 430, 448, 470, 540]
         }
       ],
       chart: {
@@ -227,7 +226,7 @@ export class EnergyComponent implements OnInit {
       series: [
         {
           name: "basic",
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+          data: [400, 430, 448, 470, 540]
         }
       ],
       chart: {
@@ -252,11 +251,6 @@ export class EnergyComponent implements OnInit {
           "United Kingdom",
           "Netherlands",
           "Italy",
-          "France",
-          "Japan",
-          "United States",
-          "China",
-          "Germany"
         ]
       },
       colors: ['#39afd1']
@@ -267,7 +261,7 @@ export class EnergyComponent implements OnInit {
       series: [
         {
           name: "basic",
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+          data: [400, 430, 448, 470, 540]
         }
       ],
       chart: {
@@ -292,11 +286,6 @@ export class EnergyComponent implements OnInit {
           "United Kingdom",
           "Netherlands",
           "Italy",
-          "France",
-          "Japan",
-          "United States",
-          "China",
-          "Germany"
         ]
       },
       colors: ['#39afd1']
