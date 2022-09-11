@@ -24,10 +24,29 @@
             *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-hours-24',variant:'warning',stats:4500,desc:'Cars Over night'}">
         </ng-container>
     </div> <!-- end col -->
+    
     <div class="col">
-        <ng-container
-            *ngTemplateOutlet="StatiscticsCard;context:{icon:'mdi mdi-day-sleet',variant:'blue',stats:35,desc:'Weather'}">
-        </ng-container>
+        <div class="card">
+            <div class="card-body">
+        <div class="row">
+            <div style="margin-bottom: -5px"class="row">
+                <div class="col" >
+                    <p class="bi bi-thermometer-sun"> 40 <span>c</span> </p>
+                </div>
+                <div class="col" >
+                    <p class="bi bi-wind"> 13 <span>µg/m³</span> </p>
+                </div>
+            </div>
+            <div style="margin-top: -5px; margin-bottom: -5px" class="row">
+                <div class="col" >
+                    <p class="bi bi-thermometer-snow"> 67 <span>%</span> </p>
+                </div>
+                <div class="col" >
+                    <p class="bi bi-cloud-sun"> 29.59 <span>Hg</span> </p>
+                </div>
+            </div>
+        </div>
+        </div></div>
     </div> <!-- end col -->
 
 </div>
